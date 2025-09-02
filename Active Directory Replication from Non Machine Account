@@ -16,7 +16,6 @@ Custom query:
     winlog.event_data.SubjectUserName : ("*$" AND "/^MSOL_.*/")
 
 Reference URLs
-
     https://threathunterplaybook.com/hunts/windows/180815-ADObjectAccessReplication/notebook.html
     https://threathunterplaybook.com/library/windows/active_directory_replication.html
     https://threathunterplaybook.com/hunts/windows/190101-ADModDirectoryReplication/notebook.html
