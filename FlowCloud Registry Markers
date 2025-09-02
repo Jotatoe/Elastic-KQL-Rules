@@ -1,0 +1,18 @@
+Rule Name:
+    [MSS] Critical Sigma Rule - FlowCloud Registry Markers
+
+Index patterns
+    filebeat-*
+    logs-*
+    winlogbeat-*
+Custom query
+    event.provider: "Microsoft-Windows-Security-Auditing" 
+    AND registry.path: ("*\\HARDWARE\\{2DB80286-1784-48b5-A751-B6ED1F490303}*" OR "*\\HARDWARE\\{804423C2-F490-4ac3-BFA5-13DEDE63A71A}*" OR "*\\HARDWARE\\{A5124AF5-DF23-49bf-B0ED-A18ED3DEA027}*" OR "*\\SYSTEM\\Setup\\PrintResponsor\\")
+
+Reference URLs
+    https://www.proofpoint.com/us/blog/threat-insight/ta410-group-behind-lookback-attacks-against-us-utilities-sector-returns-new
+
+MITRE ATT&CK™
+    Persistence (TA0003)
+    Defense Evasion (TA0005)
+      Modify Registry (T1112)
