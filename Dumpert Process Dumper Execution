@@ -1,0 +1,20 @@
+Rule Name:
+    [MSS] Critical Sigma Rule - HackTool - Dumpert Process Dumper Execution
+
+Index patterns
+    filebeat-*
+    logs-*
+    winlogbeat-*
+    logs-endpoint.events*
+
+Custom query
+    event.provider: "Microsoft-Windows-Security-Auditing" AND object.name: ("*\\Dumpert.dll")
+
+Reference URLs
+    https://github.com/outflanknl/Dumpert(opens in a new tab or window)
+    https://unit42.paloaltonetworks.com/actors-still-exploiting-sharepoint-vulnerability/
+
+MITRE ATT&CK™
+    Credential Access (TA0006)
+      OS Credential Dumping (T1003)
+        LSASS Memory (T1003.001)
