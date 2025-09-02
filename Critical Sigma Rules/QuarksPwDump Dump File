@@ -14,7 +14,7 @@ Reference URLs
     https://jpcertcc.github.io/ToolAnalysisResultSheet/details/QuarksPWDump.htm
 
 MITRE ATT&CK™
-    Credential Access (TA0006)(opens in a new tab or window)
+    Credential Access (TA0006)
       OS Credential Dumping (T1003)
         LSASS Memory (T1003.001)
         Security Account Manager (T1003.002)
