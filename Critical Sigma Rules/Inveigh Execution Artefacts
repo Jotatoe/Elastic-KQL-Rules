@@ -1,0 +1,32 @@
+Rule Name:
+    [MSS] Critical Sigma Rule - HackTool - Inveigh Execution Artefacts
+
+Index patterns
+    filebeat-*
+    logs-*
+    winlogbeat-*
+    logs-endpoint.events*
+
+Custom query
+    event.provider: "Microsoft-Windows-Security-Auditing" 
+    AND object.name: (
+      "*\Inveigh-Log.txt" OR 
+      "*\Inveigh-Cleartext.txt" OR 
+      "*\Inveigh-NTLMv1Users.txt" OR 
+      "*\Inveigh-NTLMv2Users.txt" OR 
+      "*\Inveigh-NTLMv1.txt" OR 
+      "*\Inveigh-NTLMv2.txt" OR 
+      "*\Inveigh-FormInput.txt" OR 
+      "*\Inveigh.dll" OR "*\Inveigh.exe" OR 
+      "*\Inveigh.ps1" OR "*\Inveigh-Relay.ps1"
+    )
+
+Reference URLs
+    https://github.com/Kevin-Robertson/Inveigh/blob/29d9e3c3a625b3033cdaf4683efaafadcecb9007/Inveigh/Support/Output.cs
+    https://github.com/Kevin-Robertson/Inveigh/blob/29d9e3c3a625b3033cdaf4683efaafadcecb9007/Inveigh/Support/Control.cs
+    https://thedfirreport.com/2020/11/23/pysa-mespinoza-ransomware/
+
+MITRE ATT&CK™
+    Credential Access (TA0006)
+      Adversary-in-the-Middle (T1557)
+        LLMNR/NBT-NS Poisoning and SMB Relay (T1557.001)
