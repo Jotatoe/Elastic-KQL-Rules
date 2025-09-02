@@ -1,0 +1,19 @@
+Rule Name:
+    [MSS] Critical Sigma Rule - HackTool - Mimikatz Kirbi File Creation
+
+Index patterns
+    filebeat-*
+    logs-*
+    winlogbeat-*
+    logs-endpoint.events*
+
+Custom query
+    event.provider: "Microsoft-Windows-Security-Auditing" AND object.name: ("*.kirbi" OR "*mimilsa.log")
+
+Reference URLs
+    https://cobalt.io/blog/kerberoast-attack-techniques
+    https://pentestlab.blog/2019/10/21/persistence-security-support-provider/
+
+MITRE ATT&CK™
+    Credential Access (TA0006)
+      Steal or Forge Kerberos Tickets (T1558)
