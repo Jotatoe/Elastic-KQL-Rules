@@ -1,0 +1,19 @@
+Rule Name:
+    [MSS] Critical Sigma Rule - HackTool - SecurityXploded Execution
+
+Index patterns
+    filebeat-*
+    logs-*
+    winlogbeat-*
+    logs-endpoint.events*
+
+Custom query
+    event.provider: "Microsoft-Windows-Security-Auditing" AND process.name: "PasswordDump.exe"
+
+Reference URLs
+    https://securityxploded.com/
+    https://web.archive.org/web/20200601000524/https://cyberx-labs.com/blog/gangnam-industrial-style-apt-campaign-targets-korean-industrial-companies/
+
+MITRE ATT&CK™
+    Credential Access (TA0006)
+      OS Credential Dumping (T1003)
