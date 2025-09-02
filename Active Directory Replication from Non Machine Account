@@ -1,0 +1,27 @@
+Rule Name:
+    [MSS] Critical Sigma Rule - Active Directory Replication from Non Machine Account
+
+Index patterns:
+    logs-*
+    winlogbeat-*
+    logs-endpoint.events*
+
+Custom query:
+    event.provider : "Microsoft-Windows-Security-Auditing" AND event.code : "4662" 
+    AND 
+    winlog.event_data.AccessMask : "0x100" 
+    AND 
+    winlog.event_data.Properties : ("1131f6aa-9c07-11d1-f79f-00c04fc2dcd2" AND "1131f6ad-9c07-11d1-f79f-00c04fc2dcd2" AND "89e95b76-444d-4c62-991a-0facbeda640c") 
+    AND NOT 
+    winlog.event_data.SubjectUserName : ("*$" AND "/^MSOL_.*/")
+
+Reference URLs
+
+    https://threathunterplaybook.com/hunts/windows/180815-ADObjectAccessReplication/notebook.html
+    https://threathunterplaybook.com/library/windows/active_directory_replication.html
+    https://threathunterplaybook.com/hunts/windows/190101-ADModDirectoryReplication/notebook.html
+
+MITRE ATT&CK™
+    Credential Access (TA0006)
+      OS Credential Dumping (T1003)
+        DCSync (T1003.006)
