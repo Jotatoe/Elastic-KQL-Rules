@@ -1,0 +1,19 @@
+Rule Name:
+    [MSS] Critical Sigma Rule - HackTool - DInjector PowerShell Cradle Execution
+
+Index patterns
+    filebeat-*
+    logs-*
+    winlogbeat-*
+    logs-endpoint.events*
+
+Custom query
+    event.provider: "Microsoft-Windows-Security-Auditing" AND process.name: ("powershell.exe" OR "pwsh.exe") AND process.command_line: ("*/am51*" OR "*/password*")
+
+Reference URLs
+    https://web.archive.org/web/20211001064856/
+    https://github.com/snovvcrash/DInjector
+
+MITRE ATT&CK™
+    Defense Evasion (TA0005)
+      Process Injection (T1055)
