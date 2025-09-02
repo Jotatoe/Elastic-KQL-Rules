@@ -1,0 +1,21 @@
+Rule Name:
+    [MSS] Critical Sigma Rule - HackTool - QuarksPwDump Dump File
+
+Index patterns
+    filebeat-*
+    logs-*
+    winlogbeat-*
+    logs-endpoint.events*
+
+Custom query
+    event.provider: "Microsoft-Windows-Security-Auditing" AND object.name: ("*\\AppData\\Local\\Temp\\SAM-*" OR "*.dmp")
+
+Reference URLs
+    https://jpcertcc.github.io/ToolAnalysisResultSheet/details/QuarksPWDump.htm
+
+MITRE ATT&CK™
+    Credential Access (TA0006)(opens in a new tab or window)
+      OS Credential Dumping (T1003)
+        LSASS Memory (T1003.001)
+        Security Account Manager (T1003.002)
+        NTDS (T1003.003)
